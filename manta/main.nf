@@ -12,8 +12,13 @@ process MANTA_SINGLE {
         path fai
         
     output:
-        tuple val(sample_name), path("*_metrics"),  emit: metrics
-        path  "versions.yml",                       emit: versions
+        tuple val(sample_name), path("*candidate_small_indels.vcf.gz")    , emit: candidate_small_indels_vcf
+        tuple val(sample_name), path("*candidate_small_indels.vcf.gz.tbi"), emit: candidate_small_indels_vcf_tbi
+        tuple val(sample_name), path("*candidate_sv.vcf.gz")              , emit: candidate_sv_vcf
+        tuple val(sample_name), path("*candidate_sv.vcf.gz.tbi")          , emit: candidate_sv_vcf_tbi
+        tuple val(sample_name), path("*diploid_sv.vcf.gz")                , emit: diploid_sv_vcf
+        tuple val(sample_name), path("*diploid_sv.vcf.gz.tbi")            , emit: diploid_sv_vcf_tbi
+        path "versions.yml"                                        , emit: versions
 
     when:
         task.ext.when == null || task.ext.when
