@@ -2,6 +2,7 @@ process MANTA_SINGLE {
     tag "${sample_name}"
     label "manta"
     container 'quay.io/biocontainers/manta:1.6.0--h9ee0642_3'
+    cpus 16
 
     input:
         val sample_name
