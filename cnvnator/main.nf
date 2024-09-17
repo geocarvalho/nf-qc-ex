@@ -25,6 +25,7 @@ process CNVNATOR {
     cnvnator -root ${sample_id}.root -stat 1000
     cnvnator -root ${sample_id}.root -partition 1000 -ngc
     cnvnator -root ${sample_id}.root -call 1000 -ngc > ${sample_id}.tab
+    cnvnator2VCF.pl -prefix ${sample_id} -reference hg38 ${sample_id}.tab > ${sample_id}.cnvnator.vcf
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
