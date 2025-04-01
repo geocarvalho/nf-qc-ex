@@ -33,6 +33,6 @@ workflow {
     // PICARD(params.sample_name, params.cram, params.crai, params.fasta, params.fai)
     // MANTA_SINGLE(params.sample_name, params.cram, params.crai, params.fasta, params.fai)
     // CNVNATOR(params.sample_name, params.cram, params.crai, params.fasta, params.fai)
-    input_ch = Channel.value([params.meta, file(params.bed)])
+    input_ch = Channel.value([params.sample_name, file(params.cnv_merge)])
     BED2BW(input_ch)
 }
